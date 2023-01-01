@@ -35,7 +35,8 @@ Q２.「koyama」がリストに登録するために
 
 Q３.課題７の一つ目「http://localhost:8080/names?name=koyama のようにクエリ文字列を受け取れるようにする」について
 
-   googleのchromeで「http://localhost:8080/names?name=koyama」　を入れるとkoyamaと表示されるのですが、これはできてるのでしょうか。。。
+   googleのchromeで「http://localhost:8080/names?name=koyama」　
+   を入れるとkoyamaと表示されるのですが、これはできてるのでしょうか。。。
 ■調べてわかったこと
 
 ・-H 'Content-Type: application/json'とは
