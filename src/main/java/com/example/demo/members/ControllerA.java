@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.members;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,32 +10,28 @@ import org.springframework.web.bind.annotation.RestController;
  * http://localhost:8080/controller で呼び出せる
  */
 @RestController
-@RequestMapping("/controller")
+@RequestMapping
 public class ControllerA {
 
     /**
      * GETメソッド
      * http://localhost:8080/controller/get_method で呼び出せる
-     *
      * @param param1 URL リクエストで ?get_param=~ で送信できるパラメータ
      */
-    @GetMapping("/get_method")
-    public String getA(@RequestParam("get_param") String param1) {
+    @GetMapping("/names")
+    public String getMethod(@RequestParam("name") String param1) {
         // テスト用のURL
-        // http://localhost:8080/controller/get_method?get_param=test
-        return "name successfully created" + param1;
+        // http://localhost:8080/names?name=test
+        return param1;
     }
 
     /**
      * POSTメソッド
-     * http://localhost:8080/controller/post_method
-     *
-     * @param param1 　URL リクエストのパラメータ
      */
-    @PostMapping("/post_method")
-    public String postMethod(@RequestParam("post_param") String param1) {
+    @PostMapping("/names")
+    String postMethod(){
         // テスト用のURL
-        // http://localhost:8080/controller/post_method?post_param=test
-        return "POST　メソッドのレスポンス_param->" + param1;
+        // http://localhost:8080/names?post_param=test
+        return "name successfully created";
     }
 }
