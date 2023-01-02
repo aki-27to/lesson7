@@ -1,11 +1,6 @@
 package com.example.demo.members;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 /**
  * http://localhost:8080/controller で呼び出せる
  */
@@ -20,6 +15,7 @@ public class ControllerA {
      */
     @GetMapping("/names")
     public String getMethod(@RequestParam("name") String param1) {
+        //名前がNullの時
         // テスト用のURL
         // http://localhost:8080/names?name=test
         return param1;
@@ -28,10 +24,21 @@ public class ControllerA {
     /**
      * POSTメソッド
      */
-    @PostMapping("/names")
-    String postMethod(){
-        // テスト用のURL
-        // http://localhost:8080/names?post_param=test
-        return "name successfully created";
+    @PostMapping("/names/post")
+    public String postMethod(){
+        return "posted!";
     }
+
+    @PatchMapping("/names/patch")
+    public String patchMethod(){
+        return "patched!";
+    }
+
+    @DeleteMapping("/names/delete")
+    public String deleteMethod(){
+        return "deleted!";
+    }
+
+
+
 }
