@@ -1,11 +1,14 @@
 package com.example.demo.members;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 public class CreateForm {
     @NotNull
+    @NotBlank
+    @NotEmpty
     String notNullField;
 
     private String name;

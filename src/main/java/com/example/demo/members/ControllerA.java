@@ -10,8 +10,6 @@ public class ControllerA {
 
     /**
      * GETメソッド
-     * http://localhost:8080/controller/get_method で呼び出せる
-     * @param param1 URL リクエストで ?get_param=~ で送信できるパラメータ
      */
     @GetMapping("/names")
     public String getMethod(@RequestParam("name") String param1) {
