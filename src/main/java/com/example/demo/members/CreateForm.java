@@ -1,27 +1,28 @@
 package com.example.demo.members;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
 public class CreateForm {
-    @NotNull
-    @NotBlank
-    @NotEmpty
-    @Max(20)
     private String name;
     private String birthday;
+
+    public CreateForm(String name, String dateOfBirth) {
+        this.name = name;
+        this.birthday = dateOfBirth;
+    }
+
+
     public String getName() {
         return name;
     }
-    public String getBirthday(){
+
+    public String getDateOfBirth() {
         return birthday;
     }
+
     public void setName(String name) {
         this.name = name;
     }
-    public void setBirthday(String birthday){
-        this.birthday = birthday;
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.birthday = dateOfBirth;
     }
 }
