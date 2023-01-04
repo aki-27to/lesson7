@@ -15,7 +15,7 @@ import java.net.URI;
 @RequestMapping
 public class ControllerA {
     /*** GETメソッド*/
-    @GetMapping("/names/get")
+    @GetMapping("/names/")
     public CreateForm getMethod(@Valid @NotBlank String name, @RequestParam @Valid @NotBlank String birthday) {
         return new CreateForm(name, birthday);
     }
