@@ -21,8 +21,10 @@ public class MemberController {
 
 
     @GetMapping
-    public List<Member> getCreateForm() {
-        return memberService.getCreateForm(@RequestParam("name") List < Member > name);
+    public List<Member> getMember() {
+        return memberService.getMember(
+                @RequestParam("name") List < Member > name,
+                @RequestParam("birthday") List < Member > birthday);
     }
 
 

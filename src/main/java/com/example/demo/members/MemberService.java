@@ -7,7 +7,7 @@ import java.util.List;
 
 @Component
 public class MemberService {
-    public List<Member> getCreateForm(
+    public List<Member> getMember(
             @RequestParam("name") List<Member> name,
             @RequestParam("birthday") List<Member> birthday) {
         return name;
