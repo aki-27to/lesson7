@@ -4,17 +4,17 @@ public class CreateForm {
     private String name;
     private String birthday;
 
-    public CreateForm(String name, String dateOfBirth) {
+    public CreateForm(String name,
+                      String birthday) {
         this.name = name;
-        this.birthday = dateOfBirth;
+        this.birthday = birthday;
     }
-
 
     public String getName() {
         return name;
     }
 
-    public String getDateOfBirth() {
+    public String getBirthday() {
         return birthday;
     }
 
@@ -22,7 +22,7 @@ public class CreateForm {
         this.name = name;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.birthday = dateOfBirth;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 }

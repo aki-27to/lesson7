@@ -1,27 +1,32 @@
 package com.example.demo.members;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import java.net.URI;
+import java.util.List;
 
-/**
- * http://localhost:8080/controller で呼び出せる
- */
 @RestController
-@RequestMapping
+@RequestMapping(path = "api/v1/members")
 public class ControllerA {
-    /*** GETメソッド*/
-    @GetMapping("/names/")
-    public CreateForm getMethod(@Valid @NotBlank String name, @RequestParam @Valid @NotBlank String birthday) {
-        return new CreateForm(name, birthday);
+
+    private final CreateService createService;
+
+    @Autowired
+    public ControllerA(CreateService createService) {
+        this.createService = createService;
     }
 
+
+    @GetMapping("/getmember")
+    public List<CreateForm> getCreateForm() {
+        return createService.getCreateForm();
+    }
+
+
     /*** POSTメソッド*/
-    @PostMapping("/names/post")
+    /*@PostMapping("/names/post")
     public ResponseEntity<String> create(@RequestBody CreateForm form) {
         URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
                 .path("/names/id")
@@ -39,8 +44,6 @@ public class ControllerA {
     @DeleteMapping("/names/delete")
     public String deleteMethod() {
         return "deleted!";
-    }
-
-
+    }*/
 
 }
