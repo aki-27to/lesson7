@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Component
-public class CreateService {
-    public List<CreateForm> getCreateForm(
-            @RequestParam("name") List<CreateForm> name,
-            @RequestParam("birthday") List<CreateForm> birthday) {
+public class MemberService {
+    public List<Member> getCreateForm(
+            @RequestParam("name") List<Member> name,
+            @RequestParam("birthday") List<Member> birthday) {
         return name;
     }
 

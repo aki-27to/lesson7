@@ -3,25 +3,26 @@ package com.example.demo.members;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/members")
-public class ControllerA {
+public class MemberController {
 
-    private final CreateService createService;
+    private final MemberService memberService;
 
     @Autowired
-    public ControllerA(CreateService createService) {
-        this.createService = createService;
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
     }
 
 
-    @GetMapping("/getmember")
-    public List<CreateForm> getCreateForm() {
-        return createService.getCreateForm();
+    @GetMapping
+    public List<Member> getCreateForm() {
+        return memberService.getCreateForm(@RequestParam("name") List < Member > name);
     }
 
 

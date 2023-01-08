@@ -1,11 +1,11 @@
 package com.example.demo.members;
 
-public class CreateForm {
+public class Member {
     private String name;
     private String birthday;
 
-    public CreateForm(String name,
-                      String birthday) {
+    public Member(String name,
+                  String birthday) {
         this.name = name;
         this.birthday = birthday;
     }
