@@ -1,52 +1,78 @@
 package com.example.demo.members;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import java.net.URI;
 
+
+@Validated
 @RestController
 @RequestMapping(path = "api/v1/members")
 public class MemberController {
-
-    private final MemberService memberService;
-
-    @Autowired
-    public MemberController(MemberService memberService) {
-        this.memberService = memberService;
-    }
-
-
+    /**
+     * GETメソッド
+     */
     @GetMapping
-    public List<Member> getMember() {
-        return memberService.getMember(
-                @RequestParam("name") List < Member > name,
-                @RequestParam("birthday") List < Member > birthday);
+    public Member getMember(int id,
+                            @Valid @NotBlank @Pattern(regexp = "[a-z|A-Z]{1,20}?") @RequestParam String name,
+                            @Valid @NotBlank @RequestParam String birthday) {
+        return new Member(id, name, birthday);
     }
+    //@Pattern(regexp = "[0-9]{1,20}?")
+    //決まった文字列を単品で返す
+    /*
+    public String getName() {
+        return "name";
+    }*/
+    //決まった文字列を複数返す
+    /*
+    public Member getMember() {
+        return new Member("name", "birthday");
+    }*/
 
 
-    /*** POSTメソッド*/
-    /*@PostMapping("/names/post")
-    public ResponseEntity<String> create(@RequestBody CreateForm form) {
+    /**
+     * POST
+     */
+    @PostMapping
+    public ResponseEntity<String> postMember(@RequestBody Member form) {
         URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
-                .path("/names/id")
+                .path("/id")
                 .build()
                 .toUri();
-        return ResponseEntity.created(url).body("name success");
+        return ResponseEntity.created(url).body("name successfully created");
 
     }
 
-    @PatchMapping("/names/patch")
+    /**
+     * PATCH
+     */
+    @PatchMapping("/{id}")
+    public ResponseEntity<String> patchMember(@PathVariable int id) {
+        return new ResponseEntity<>("name successfully updated", HttpStatus.OK);
+    }
+
+
+
+    /*
     public String patchMethod() {
         return "patched!";
-    }
-
-    @DeleteMapping("/names/delete")
-    public String deleteMethod() {
-        return "deleted!";
     }*/
+
+
+    /**
+     * DELETE
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteMember(@PathVariable int id) {
+        return new ResponseEntity<>("name successfully deleted", HttpStatus.OK);
+    }
 
 }
