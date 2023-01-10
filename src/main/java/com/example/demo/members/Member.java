@@ -9,7 +9,7 @@ public class Member {
             int id,
             String name,
             String birthday) {
-        this.id = 0001;
+        this.id = id;
         this.name = name;
         this.birthday = birthday;
     }
