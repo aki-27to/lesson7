@@ -6,6 +6,10 @@
 
 <img width="854" alt="スクリーンショット 2023-01-09 19 52 21" src="https://user-images.githubusercontent.com/120763272/211291864-2b60d8ae-80cf-4973-8088-4ceb5195bb77.png">
 
+（2023/01/14）
+{id}の数値を認識させるよう変更を加えた
+
+<img width="1093" alt="スクリーンショット 2023-01-14 11 28 33" src="https://user-images.githubusercontent.com/120763272/212446736-dd62e533-69d5-4d1d-8602-6ab35ecc1303.png">
 
 ②POST
 
