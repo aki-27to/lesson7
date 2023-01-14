@@ -19,11 +19,13 @@ public class MemberController {
     /**
      * GETメソッド
      */
-    @GetMapping
-    public Member getMember(int id,
-                            @Valid @NotBlank @Pattern(regexp = "[a-z|A-Z]{1,20}?") @RequestParam String name,
+    @GetMapping("/{id}")
+    public Member getMember(@PathVariable int id,
+                            @Valid @NotBlank @Pattern(regexp = "[a-z|A-Z]{0,20}?") @RequestParam String name,
                             @Valid @NotBlank @RequestParam String birthday) {
+
         return new Member(id, name, birthday);
+
     }
     //@Pattern(regexp = "[0-9]{1,20}?")
     //決まった文字列を単品で返す
